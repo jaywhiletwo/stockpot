@@ -11,7 +11,7 @@ app.debug = True
 def soup():
     your_soup = {
         'name': 'Rule Breakers',
-        'service_id': 1228,
+        'service_id': 1069,
     }
     css = "http://newsletters.fool.com/%s/css/product.css" % your_soup['service_id']
     your_picks = ['AAPL', 'MSFT', ]

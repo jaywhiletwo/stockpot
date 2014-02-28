@@ -1,4 +1,8 @@
 <style>
+.white {
+    color: white;
+}
+
 .advisor-image {
 	border-radius: 50%;
 }
@@ -35,6 +39,7 @@
 
 <html>
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://newsletters.fool.com/1255/css/product.css" rel="stylesheet">
 <link href="{{ css }}" rel="stylesheet">
 	<body>
 		<div class="container-fluid">
@@ -55,7 +60,7 @@
 		    </div>
 
 			<div>
-				<h4>
+				<h4 class="white">
 					Your stocks that match {{your_soup.name}} picks
 				</h4>
 				<div class="row">
@@ -71,7 +76,7 @@
 
 
       		<div>
-      			<h4>
+      			<h4 class="white">
 					More {{your_soup.name}} picks
 				</h4>
 				<div class="row">
