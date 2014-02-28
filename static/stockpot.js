@@ -1,3 +1,7 @@
+window.alert('hi');
+
+$(function(){
+
 var universeStockPick = Backbone.Model.extend({
 
 	initialize:  function(universe) {
@@ -19,5 +23,8 @@ var universeStockPickView = Backbone.View.extend({
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'destroy', this.remove);
     },
+
+});
+	var App = new universeStockPickView;
 
 });
