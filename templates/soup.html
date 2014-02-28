@@ -8,7 +8,9 @@
 	background-color: #d51;
 	height: 250px;
 	width: 250px;
-
+	margin-left: 40%;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .service-image{
@@ -16,7 +18,10 @@
 	padding: 20px;
 	margin-top: 38%;
 	width: 100%;
+}
 
+.stocks-you-own {
+	display: inline-block;
 }
 </style>
 
@@ -24,11 +29,23 @@
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 	<body>
 		<div class="container-fluid">
-			<div class="jumbotron">
 				<div class="service-color">
 					<img class="image-responsive service-image" alt="200x200" src="http://g.fool.com/art/newsletters/1069/site/logo.png"/>
 				</div>
-			</div>
+
+
+			<div class="panel panel-success">
+			    <div class="panel-heading">
+			        <span class="glyphicon glyphicon-USD"></span>
+			        <h3 class="panel-title stocks-you-own">
+			        	We analyzed your picks and you match the Rule Breakers service.
+			        </h3>
+			    </div>
+			    <div class="panel-body">
+			        Blurb about this service
+			    </div>
+		    </div>
+
             <div class="table-responsive">
 	            <table class="table table-striped">
 	                <thead>
@@ -48,17 +65,6 @@
 	              	</tbody>
             	</table>
           	</div>
-
-          	<div class="col-xs-6 col-sm-3 placeholder">
-              <img src="http://g.fool.com/art/Newsletters/1069/img/davidg.jpg" class="img-responsive advisor-image" alt="200x200">
-              <h4>David Gardner</h4>
-              <span class="text-muted">David's Top Picks</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="http://g.fool.com/art/Newsletters/1069/img/karlt.jpg" class="img-responsive advisor-image" alt="200x200">
-              <h4>Karl Thiel</h4>
-              <span class="text-muted">Karl's Top Picks</span>
-            </div>
 
 		</div>
 	</body>
