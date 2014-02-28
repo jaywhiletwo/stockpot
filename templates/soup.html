@@ -52,24 +52,37 @@
 			        Blurb about this service
 			    </div>
 		    </div>
-			
-			{% for pick in your_picks %}
-			    <div class="row">
-	      		<div class="col-xs-6 col-md-3">
-	        		<a href="#" class="thumbnail">
-	          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/{{pick}}.png">
-	        		</a>
-	      		</div>
-      		{% endfor %}
 
-            {% for pick in other_picks %}
-			    <div class="row">
-	      		<div class="col-xs-6 col-md-3">
-	        		<a href="#" class="thumbnail">
-	          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/{{pick}}.png">
-	        		</a>
-	      		</div>
-      		{% endfor %}
+			<div>
+				<h4>
+					Your stocks that match {{your_soup.name}} picks
+				</h4>
+				<div class="row">
+				{% for pick in your_picks %}		    
+		      		<div class="col-xs-6 col-md-3">
+		        		<a href="#" class="thumbnail">
+		          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/{{pick}}.png">
+		        		</a>
+		      		</div>	      	
+      			{% endfor %}
+      			</div>
+      		</div>
+
+
+      		<div>
+      			<h4>
+					More {{your_soup.name}} picks
+				</h4>
+				<div class="row">
+	            {% for pick in other_picks %}				    
+			      		<div class="col-xs-6 col-md-3">
+			        		<a href="#" class="thumbnail">
+			          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/{{pick}}.png">
+			        		</a>
+			      		</div>
+	      		{% endfor %}
+      			</div>
+      		</div>
 
 		</div>
 	</body>
