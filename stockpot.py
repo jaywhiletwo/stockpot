@@ -11,14 +11,16 @@ app.debug = True
 def soup():
     your_soup = {
         'name': 'Rule Breakers',
-        'service_id': 1069,
+        'service_id': 1228,
     }
+    css = "http://newsletters.fool.com/%s/css/product.css" % your_soup['service_id']
     your_picks = ['AAPL', 'MSFT', ]
-    picks_in_service = collapsed_universe(service=your_soup['name'])
 
+    picks_in_service = collapsed_universe(service=your_soup['name'])
     pic_check = lambda x: requests.get("http://g.foolcdn.com/art/companylogos/medium/%s.png" % x)
     other_picks = filter(pic_check, picks_in_service.keys()[:5])
-    return render_template('soup.html', your_picks=your_picks, other_picks=other_picks, your_soup=your_soup)
+
+    return render_template('soup.html', your_picks=your_picks, other_picks=other_picks, your_soup=your_soup, css=css)
 
 
 @app.route("/static/<path:filename>")
