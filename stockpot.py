@@ -9,8 +9,7 @@ app.debug = True
 
 @app.route("/", methods=['GET', 'POST', ])
 def index():
-    r = requests.get("https://api.fool.com/premium/recommendations/tmfuniverse/?apikey=J6tv7JMuX6DRTqgWbhFIR8pKEww4YV81")
-    stocks = json.loads(r.content)
+    stocks = collapsed_universe()
     return render_template('index.html', stocks=stocks)
 
 
@@ -27,8 +26,15 @@ def show_static(filename):
 
 @app.route("/universe")
 def api():
+    return collapsed_universe()
+
+
+def collapsed_universe():
     r = requests.get("https://api.fool.com/premium/recommendations/tmfuniverse/?apikey=J6tv7JMuX6DRTqgWbhFIR8pKEww4YV81")
-    return r.content
+    uni = []
+    for ticker in json.loads(r.content):
+        uni.append(ticker)
+    return uni
 
 
 if __name__ == "__main__":
