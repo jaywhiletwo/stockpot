@@ -1,30 +1,28 @@
-window.alert('hi');
-
 $(function(){
 
-var universeStockPick = Backbone.Model.extend({
+	var universeStockPick = Backbone.Model.extend({
 
-	initialize:  function(universe) {
-		Ticker: universe.Symbol,
-		Service: universe.Service,
-		Direction: universe.Direction,
+		initialize:  function(universe) {
+			Ticker = universe.Symbol,
+			Service = universe.Service,
+			Direction = universe.Direction,
+		};,
+		collection:  universes,
+		localStorage: new Backbone.LocalStorage("universe"),
+		
+	});
 
-	};,
-	collection:  universes,
-	localStorage: new Backbone.LocalStorage("universe"),
-	
-});
+	var universeStockPickView = Backbone.View.extend({
 
-var universeStockPickView = Backbone.View.extend({
+		tagName: "li",
+		template: _.template($('#stock-pick').html()),
+		initialize: function() {
+	      this.listenTo(this.model, 'change', this.render);
+	      this.listenTo(this.model, 'destroy', this.remove);
+	    },
 
-	tagName: "li",
-	template: _.template($('#stock-pick').html()),
-	initialize: function() {
-      this.listenTo(this.model, 'change', this.render);
-      this.listenTo(this.model, 'destroy', this.remove);
-    },
+	});
 
-});
 	var App = new universeStockPickView;
 
 });
