@@ -16,7 +16,10 @@ def index():
 @app.route("/soup", methods=['GET', 'POST', ])
 def soup():
     picks = ['AAPL', 'MSFT', ]
-    your_soup = 'Rule Breakers'
+    your_soup = {
+        'name': 'Rule Breakers',
+        'service_id': 1069,
+    }
     return render_template('soup.html', picks=picks, your_soup=your_soup)
 
 
