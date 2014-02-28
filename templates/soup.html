@@ -63,23 +63,24 @@
       		{% endfor %}
 
             <div class="table-responsive">
-	            <table class="table table-striped">
-	                <thead>
-		                <tr>
-		                  <th>#</th>
-		                  <th>Your Stock Picks</th>
-                          <th>{{ your_soup.name }} Stock Picks</th>
-		                </tr>
-		            </thead>
-		            <tbody>
-                        {% for pick in picks %}
-		                <tr>
-                            <td>{{ pick }}</td>
-		                  <td>X</td>
-		                </tr>
-                        {% endfor %}
-	              	</tbody>
-            	</table>
+                <table class="table table-striped">
+                    <thead><td>
+                    Your Stock Picks in {{ your_soup.name }}
+                    </td></thead>
+                    {% for pick in your_picks %}
+                        <tr><td>
+                        {{ pick }}
+                        </td></tr>
+                    {% endfor %}
+                </table>
+                <table class="table table-striped">
+                    <thead><td>Other {{ your_soup.name }} picks to try</td></thead>
+                    {% for pick in other_picks %}
+                        <tr><td>
+                        {{ pick }}
+                        </td></tr>
+                    {% endfor %}
+                </table>
           	</div>
 
 		</div>
