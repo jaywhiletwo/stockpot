@@ -16,7 +16,8 @@ def soup():
     your_picks = ['AAPL', 'MSFT', ]
     picks_in_service = collapsed_universe(service=your_soup['name'])
 
-    other_picks = picks_in_service.keys()[:5]
+    pic_check = lambda x: requests.get("http://g.foolcdn.com/art/companylogos/medium/%s.png" % x)
+    other_picks = filter(pic_check, picks_in_service.keys()[:5])
     return render_template('soup.html', your_picks=your_picks, other_picks=other_picks, your_soup=your_soup)
 
 
