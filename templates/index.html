@@ -3,11 +3,16 @@
 </head>
 <body>
 	<div id="stocks">
-        {% for stock in stocks %}
-            <li>
-            {{ stock.Symbol }}, {{ stock.RecStatus }}, {{ stock.Service }}, {{ stock.OpenDate }}, {{ stock.WWTN }}
-            </li>
-        {% endfor %}
+        <form action="/soup" method="POST">
+            <input type="submit">
+            <ul>
+            {% for stock in stocks %}
+                <li>
+                <input type=checkbox name=picks value="{{ stock.Symbol }}">{{ stock.Symbol }}, {{ stock.RecStatus }}, {{ stock.Service }}, {{ stock.OpenDate }}, {{ stock.WWTN }}
+                </li>
+            {% endfor %}
+            </ul>
+        </form>
 	</div>
 </body>
 
