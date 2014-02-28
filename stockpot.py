@@ -14,7 +14,9 @@ def soup():
         'service_id': 1069,
     }
     your_picks = ['AAPL', 'MSFT', ]
-    other_picks = ['GOOG', 'TSLA', ]
+    picks_in_service = collapsed_universe(service=your_soup['name'])
+
+    other_picks = picks_in_service.keys()[:5]
     return render_template('soup.html', your_picks=your_picks, other_picks=other_picks, your_soup=your_soup)
 
 
@@ -28,10 +30,11 @@ def api():
     return str(collapsed_universe())
 
 
-def collapsed_universe(service=None):
+def collapsed_universe(service='Pro'):
     r = requests.get("https://api.fool.com/premium/recommendations/tmfuniverse/?apikey=J6tv7JMuX6DRTqgWbhFIR8pKEww4YV81")
     uni = {}
-    for ticker in sorted(json.loads(r.content), key=lambda x: x['OpenDate'], reverse=True):
+    universe_list = sorted(json.loads(r.content), key=lambda x: x['OpenDate'], reverse=True)
+    for ticker in universe_list:
         symbol = ticker.get('Symbol')
         if symbol not in uni.keys():
             if not service or service == ticker.get('Service'):
