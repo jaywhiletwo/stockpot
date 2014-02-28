@@ -7,7 +7,6 @@ $(function(){
 			Service = universe.Service,
 			Direction = universe.Direction,
 		};,
-		collection:  universes,
 		localStorage: new Backbone.LocalStorage("universe"),
 		
 	});
