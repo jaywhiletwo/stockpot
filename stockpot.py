@@ -28,13 +28,14 @@ def api():
     return str(collapsed_universe())
 
 
-def collapsed_universe():
+def collapsed_universe(service=None):
     r = requests.get("https://api.fool.com/premium/recommendations/tmfuniverse/?apikey=J6tv7JMuX6DRTqgWbhFIR8pKEww4YV81")
     uni = {}
     for ticker in sorted(json.loads(r.content), key=lambda x: x['OpenDate'], reverse=True):
         symbol = ticker.get('Symbol')
         if symbol not in uni.keys():
-            uni[symbol] = ticker
+            if not service or service == ticker.get('Service'):
+                uni[symbol] = ticker
 
     return uni
 
