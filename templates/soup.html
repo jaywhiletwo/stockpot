@@ -26,7 +26,7 @@
 		<div class="container-fluid">
 			<div class="jumbotron">
 				<div class="service-color">
-					<img class="image-responsive service-image" alt="200x200" src="http://g.fool.com/art/newsletters/1069/site/logo.png"/>
+                    <img class="image-responsive service-image" alt="200x200" src="http://g.fool.com/art/newsletters/{{ your_soup.service_id }}/site/logo.png"/>
 				</div>
 			</div>
             <div class="table-responsive">
@@ -35,7 +35,7 @@
 		                <tr>
 		                  <th>#</th>
 		                  <th>Your Stock Picks</th>
-		                  <th>Rule Breaker Stock Picks</th>
+                          <th>{{ your_soup.name }} Stock Picks</th>
 		                </tr>
 		            </thead>
 		            <tbody>
