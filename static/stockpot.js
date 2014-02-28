@@ -14,7 +14,7 @@ var universeStockPick = Backbone.Model.extend({
 var universeStockPickView = Backbone.View.extend({
 
 	tagName: "li",
-	templase: _.template($('#stock-pick').html()),
+	template: _.template($('#stock-pick').html()),
 	initialize: function() {
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'destroy', this.remove);
