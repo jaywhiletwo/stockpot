@@ -23,6 +23,14 @@
 .stocks-you-own {
 	display: inline-block;
 }
+
+.company-logo {
+	display: block;
+	height: 180px; 
+	width: 100%; 
+	display: block;
+}
+
 </style>
 
 <html>
@@ -36,15 +44,23 @@
 
 			<div class="panel panel-success">
 			    <div class="panel-heading">
-			        <span class="glyphicon glyphicon-USD"></span>
 			        <h3 class="panel-title stocks-you-own">
-			        	We analyzed your picks and you match the Rule Breakers service.
+			        	We analyzed your picks and you match the {{your_soup.name}} service.
 			        </h3>
 			    </div>
 			    <div class="panel-body">
 			        Blurb about this service
 			    </div>
 		    </div>
+			
+			{% for pick in picks %}
+			    <div class="row">
+	      		<div class="col-xs-6 col-md-3">
+	        		<a href="#" class="thumbnail">
+	          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/COH.png">
+	        		</a>
+	      		</div>
+      		{% endfor %}
 
             <div class="table-responsive">
 	            <table class="table table-striped">
