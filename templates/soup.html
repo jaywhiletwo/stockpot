@@ -53,35 +53,23 @@
 			    </div>
 		    </div>
 			
-			{% for pick in picks %}
+			{% for pick in your_picks %}
 			    <div class="row">
 	      		<div class="col-xs-6 col-md-3">
 	        		<a href="#" class="thumbnail">
-	          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/COH.png">
+	          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/{{pick}}.png">
 	        		</a>
 	      		</div>
       		{% endfor %}
 
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead><td>
-                    Your Stock Picks in {{ your_soup.name }}
-                    </td></thead>
-                    {% for pick in your_picks %}
-                        <tr><td>
-                        {{ pick }}
-                        </td></tr>
-                    {% endfor %}
-                </table>
-                <table class="table table-striped">
-                    <thead><td>Other {{ your_soup.name }} picks to try</td></thead>
-                    {% for pick in other_picks %}
-                        <tr><td>
-                        {{ pick }}
-                        </td></tr>
-                    {% endfor %}
-                </table>
-          	</div>
+            {% for pick in other_picks %}
+			    <div class="row">
+	      		<div class="col-xs-6 col-md-3">
+	        		<a href="#" class="thumbnail">
+	          			<img class="company-logo" src="//g.foolcdn.com/art/companylogos/medium/{{pick}}.png">
+	        		</a>
+	      		</div>
+      		{% endfor %}
 
 		</div>
 	</body>
