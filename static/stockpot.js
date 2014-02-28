@@ -1,28 +1,23 @@
 $(function(){
 
-	var universeStockPick = Backbone.Model.extend({
-
-		initialize:  function(universe) {
-			Ticker = universe.Symbol,
-			Service = universe.Service,
-			Direction = universe.Direction,
-		};,
-		collection:  universes,
-		localStorage: new Backbone.LocalStorage("universe"),
-		
+    // model
+	var UniverseStockPick = Backbone.Model.extend({
+        // model stuff
 	});
+    
+    var ItemView = Backbone.View.extend({
+        initialize: function(item) {
+            this.render(item);
+        },
 
-	var universeStockPickView = Backbone.View.extend({
+        el: $('#item_container'),
 
-		tagName: "li",
-		template: _.template($('#stock-pick').html()),
-		initialize: function() {
-	      this.listenTo(this.model, 'change', this.render);
-	      this.listenTo(this.model, 'destroy', this.remove);
-	    },
+        render: function(item){
+            var template = _.template( $('#item_template').html(), item );
+            this.$el.html( template );
+        },
+    })
 
-	});
-
-	var App = new universeStockPickView;
-
+    var u = new UniverseStockPick({ticker: 'AAPL', service: 'Rule Breakers', direction: 'Long'});
+    var v = new ItemView(u);
 });
