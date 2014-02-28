@@ -1,13 +1,13 @@
-from flask import Flask, send_from_directory, send_static_file
+from flask import Flask, send_from_directory
 import requests
 
 
 app = Flask(__name__)
 
 
-@app.route("/universe")
+@app.route("/")
 def index():
-    return send_static_file('index.html')
+    return app.send_static_file('index.html')
 
 
 @app.route("/<path:filename>")
