@@ -14,7 +14,7 @@ def soup():
         'service_id': 1069,
     }
     css = "http://newsletters.fool.com/%s/css/product.css" % your_soup['service_id']
-    your_picks = ['AAPL', 'MSFT', ]
+    your_picks = ['INVN', 'Z', 'YELP', ]
 
     picks_in_service = collapsed_universe(service=your_soup['name'])
     pic_check = lambda x: requests.get("http://g.foolcdn.com/art/companylogos/medium/%s.png" % x)
